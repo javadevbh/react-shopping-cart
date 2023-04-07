@@ -9,6 +9,7 @@ import Product from './shared/Product';
 const Store = () => {
 
     const products = useContext(ProductsContext);
+    document.title = 'Products' ;
 
     return (
         <div style={{display : 'flex' , flexWrap : 'wrap' , justifyContent : 'space-between' , alignItems : 'center'}}>
