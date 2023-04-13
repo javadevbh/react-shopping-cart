@@ -1,10 +1,19 @@
-import React from 'react';
+import React , { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 //Helper function
-import { shortenTitle } from '../../helper/functions';
+import { shortenTitle , isInCart , quantityCount } from '../../helper/functions';
+
+//Context
+import { CartContext } from '../../contexts/CartContextProvider';
+
+//Icon
+import trash from '../../assets/icons/trash.svg';
 
 const Product = ({productData}) => {
+
+    const {state , dispatch} = useContext(CartContext);
+
     return (
         <div>
             <img src={productData.image} style={{width : '200px'}}/>
@@ -13,7 +22,13 @@ const Product = ({productData}) => {
             <div>
                 <Link to={`/products/${productData.id}`}>Details</Link>
                 <div>
-                    <button>Add to card</button>
+                    {quantityCount(state , productData.id) > 1 && <button onClick={() => dispatch({type : 'DECREASE' , payload : productData})}>-</button>}
+                    {quantityCount(state , productData.id) === 1 && <button onClick={() => dispatch({type : 'REMOVE_ITEM' , payload : productData})}><img style={{width : '20px'}} src={trash}/></button>}
+                    {
+                        isInCart(state,productData.id) ?
+                        <button onClick={() => dispatch({type : 'INCREASE' , payload : productData})}>+</button> :
+                        <button onClick={() => dispatch({type : 'ADD_ITEM' , payload : productData})}>Add to card</button>
+                    }
                 </div>
             </div>
         </div>

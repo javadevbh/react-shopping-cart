@@ -8,6 +8,7 @@ const initialState = {
 };
 
 const stateReducer = (state, action) => {
+  console.log(state)
   switch (action.type) {
     //If we selected item first time
     case "ADD_ITEM":
