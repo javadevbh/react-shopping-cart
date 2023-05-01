@@ -31,17 +31,13 @@ const stateReducer = (state, action) => {
       };
     //If we have one product with this id in cart
     case "REMOVE_ITEM":
-      const index = state.selectedItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
-      state.selectedItems[index].quantity--;
       const newSelectedItems = state.selectedItems.filter(
         (item) => item.id !== action.payload.id
       );
       return {
         ...state,
         selectedItems: [...newSelectedItems],
-        ...sumItems(state.selectedItems)
+        ...sumItems(newSelectedItems)
       };
 
     case "INCREASE":
