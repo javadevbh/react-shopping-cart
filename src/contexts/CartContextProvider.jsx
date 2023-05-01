@@ -9,7 +9,7 @@ const initialState = {
 
 const sumItems = item => {
   const itemsCounter = item.reduce((total , product) => total + product.quantity,0);
-  const total = item.reduce((total , product) => total + product.price* product.quantity,0);
+  const total = item.reduce((total , product) => total + product.price* product.quantity,0).toFixed(2);
   return {itemsCounter , total}
 }
 
@@ -26,7 +26,8 @@ const stateReducer = (state, action) => {
       return {
         ...state,
         selectedItems: [...state.selectedItems],
-        ...sumItems(state.selectedItems)
+        ...sumItems(state.selectedItems),
+        checkout: false,
       };
     //If we have one product with this id in cart
     case "REMOVE_ITEM":
