@@ -1,0 +1,17 @@
+@import 'variables';
+@mixin hoverStyle($color){
+    color:$color;
+}
+@mixin showPointer{
+    cursor: pointer;
+}
+@mixin fontStyle($color,$size,$weight){
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+}
+@mixin flexBox($justify,$align){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}

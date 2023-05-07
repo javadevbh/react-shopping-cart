@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { Link , useParams } from "react-router-dom";
 
+//Styles
+import './scss/productdetails.scss'
+
 //Context
 import { ProductsContext } from "../contexts/ProductContextProvider";
 
@@ -10,15 +13,15 @@ const ProductDetails = () => {
   const { image , title , description , category , price } = product[id - 1];
   document.title=title;
   return (
-    <div>
+    <div className="details-container border-silver">
       <img src={image} alt="product" />
-      <div>
+      <div className="info-container border-silver">
         <h3>{title}</h3>
         <p>{description}</p>
-        <p><span>Category : {category} </span></p>
-        <div>
+        <p className="category"><span>Category : </span>{category} </p>
+        <div className="buttons-container">
             <span> {price} $</span>
-            <Link to='/products'>Back to store</Link>
+            <Link className="transition button-hover" to='/products'>Back to store</Link>
         </div>
       </div>
     </div>

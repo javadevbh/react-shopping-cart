@@ -1,0 +1,10 @@
+@import 'mixins';
+
+.products-container{
+    @include flexBox(space-between,center);
+    flex-wrap : wrap ;
+    margin-top: 150px;
+    @media (max-width : 540px){
+        @include flexBox(center,center)
+    }
+}

@@ -1,0 +1,31 @@
+@import 'mixins';
+
+nav{
+    background-color: #fff;
+    padding: 13px 0;
+    box-shadow: 0px 5px 24px rgba(149, 157, 165, 0.4);
+    position : fixed;
+    top: 0;
+    
+    .navbar-content{
+        @include flexBox(space-between,center);
+        .nav-item{
+            @include fontStyle($primaryColor,16px,bold);
+            border-bottom: 3px solid $primaryColor;
+        }
+        .shopping-icon{
+            position: relative;
+            span{
+                position: absolute;
+                @include fontStyle(#fff,0.75rem,bold);
+                right: 0px;
+                background: #0b499b;
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                text-align: center;
+                line-height: 18px;
+            }
+        }
+    }
+}

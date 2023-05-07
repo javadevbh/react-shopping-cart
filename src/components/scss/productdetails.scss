@@ -1,0 +1,80 @@
+@import './mixins';
+
+.details-container{
+   @include flexBox(space-between,center);
+    margin: 150px 150px 50px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+
+    img{
+        width: 450px;
+    }
+
+    .info-container{
+        margin-left: 30px;
+        padding: 20px;
+        border-radius: 10px;
+
+        h3{
+            color: $primaryColor;
+            margin: 20px 0 30px;
+        }
+
+        p{
+            color: $secondaryBlack;
+            margin-bottom: 30px;
+            line-height: 1.6rem;
+        }
+
+        .category{
+            font-weight: bold;
+            margin-bottom: 50px;
+            color: $textColor;
+            span{
+                color: $mainOrange;
+            }
+        }
+
+        .buttons-container{
+            @include flexBox(space-between,center);
+            flex-wrap: wrap;
+
+            span,a{
+                display: inline-block;
+                background: $mainGreen;
+                padding: 7px 16px;
+                color: #fff;
+                font-weight: bold;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 9px 16px;
+            }
+
+            a{
+                background: $primaryColor;
+                transition: all 0.2s ease;
+                @include showPointer;
+            }
+        }
+    }
+
+    @media (max-width : 1100px){
+        margin: 150px 80px 50px;
+    }
+    @media (max-width : 1000px){
+        flex-direction: column;
+        justify-content: center !important;
+        .info-container{
+            margin-left: 0;
+        }
+        img{
+            width: 170px;
+            margin-bottom: 50px;
+        }
+    }
+
+    @media (max-width : 495px){
+        margin: 150px 40px 50px;
+    }
+}

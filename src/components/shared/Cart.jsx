@@ -16,24 +16,24 @@ const Cart = (props) => {
     const {dispatch} = useContext(CartContext);
 
     return (
-        <div>
-            <img src={image} alt='item-image'/>
-            <div>
-                <h3>{shortenTitle(title)}</h3>
-                <p>{price}</p>
-            </div>
-            <div>
-                <span>{quantity} $</span>
-            </div>
-            <div>
-                {
-                    quantity > 1 ? 
-                    <button onClick={() => dispatch({type : "DECREASE" , payload : props.data})}>-</button> :
-                    <button onClick={() => dispatch({type : "REMOVE_ITEM" , payload : props.data})}><img style={{width : "20px"}} src={trashIcon} alt='trash'/></button>
-                }
-                <button onClick={() => dispatch({type : "INCREASE" , payload : props.data})}>+</button>
-            </div>
-        </div>
+            <>
+                <img src={image} alt='item-image'/>
+                <div>
+                    <h3>{shortenTitle(title)}</h3>
+                    <p>{price} $</p>
+                </div>
+                <div>
+                    <span>{quantity}</span>
+                </div>
+                <div className='buttons-container'>
+                    {
+                        quantity > 1 ? 
+                        <button className='transition button-hover card-btn' onClick={() => dispatch({type : "DECREASE" , payload : props.data})}>-</button> :
+                        <button className='transition button-hover card-btn' onClick={() => dispatch({type : "REMOVE_ITEM" , payload : props.data})}><img style={{width : "20px"}} src={trashIcon} alt='trash'/></button>
+                    }
+                    <button className='transition button-hover card-btn' onClick={() => dispatch({type : "INCREASE" , payload : props.data})}>+</button>
+                </div>
+            </>
     );
 };
 
