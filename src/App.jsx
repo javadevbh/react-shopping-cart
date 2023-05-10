@@ -20,7 +20,7 @@ function App() {
           <Route path="/products/:id" element={<ProductDetails/>} />
           <Route path="/products" element={<Store/>} />
           <Route path="/cart" element={<StoreCart/>} />
-          <Route from="/*" element={<Navigate to="/products"/>} />
+          <Route path="/*" element={<Navigate to="/products"/>} />
         </Routes>
       </CartContextProvider>
     </ProductContextProvider>
