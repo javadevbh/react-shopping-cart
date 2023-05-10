@@ -19,7 +19,9 @@ const Product = ({productData}) => {
 
     return (
         <div className='card border-silver'>
-            <img src={productData.image}/>
+            <div className='image-container'>
+                <img src={productData.image}/>
+            </div>
             <div className='card-body'>
                 <h3>{shortenTitle(productData.title)}</h3>
                 <p>{productData.price} $</p>
