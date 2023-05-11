@@ -1,32 +1,41 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+
+//Loading
+import Loading from "./shared/Loading";
+
+//URL
+const BASE_URL = "https://fakestoreapi.com";
 
 //Styles
 import "./scss/productdetails.scss";
 
-//Context
-import { ProductsContext } from "../contexts/ProductContextProvider";
-import axios from "axios";
-
 const ProductDetails = () => {
-  // const [product, setProducts] = useState({});
   const { id } = useParams();
-  const product = useContext(ProductsContext);
-  const { image, title, description, category, price } = product[id - 1];
-  document.title = title;
+  const [product, setProduct] = useState(null);
 
-  /*useEffect(() => {
-    const getProducts = async () => {
-      const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
-      return response.data;
-  }
-    const fetchAPI = async () => {
-      setProducts(await getProducts());
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`${BASE_URL}/products/${id}`);
+      setProduct(response.data);
     };
+    fetchData();
+  }, [id]);
 
-    fetchAPI();
-  }, []);*/
+  if (!product) {
+    return (
+      <Loading
+        type={"spinningBubbles"}
+        color={"#1a73e8"}
+        height={"150px"}
+        width={"150px"}
+      />
+    );
+  }
 
+  const { image, title, description, category, price } = product;
+  document.title = title;
 
   return (
     <div className="details-container border-silver">
