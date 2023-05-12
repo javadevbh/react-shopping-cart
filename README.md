@@ -3,7 +3,7 @@
 </div>
 
 ---
-# A shopping cart with reactjs
+# This is a practice project with Ricketts
 ## [review online](https://javadbahrami-store-react.netlify.app/)
 ---
 ## tips
