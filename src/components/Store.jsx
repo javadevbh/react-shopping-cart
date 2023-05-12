@@ -28,11 +28,14 @@ const Store = () => {
   }
 
   return (
-    <div className="container products-container">
-      {products.map((product) => (
-        <Product key={product.id} productData={product} />
-      ))}
-    </div>
+    <>
+      <div className="container products-container">
+        {products.map((product) => (
+          <Product key={product.id} productData={product} />
+        ))}
+      </div>
+      <p style={{textAlign : 'center' , marginBottom : '15px'}}>Made by <a href="https://github.com/javadevbh/" target="blank">Javad Bahrami</a>&#127775;</p>
+    </>
   );
 };
 
