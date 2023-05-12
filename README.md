@@ -3,7 +3,7 @@
 </div>
 
 ---
-# This is a practice project with Ricketts
+# This is a practice project with React
 ## [review online](https://javadbahrami-store-react.netlify.app/)
 ---
 ## tips
